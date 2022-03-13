@@ -1,22 +1,12 @@
-import { Box, Button, Flex, FormControl, FormLabel, HStack, Icon, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Stack, Text, Tooltip, useDisclosure } from "@chakra-ui/react";
+import { Box, Flex, HStack, Icon, Stack, Text, Tooltip, useDisclosure } from "@chakra-ui/react";
 import { BsPlusLg } from 'react-icons/bs'
 import { BsChatSquareText } from "react-icons/bs"
 import { NavLink } from "./NavLink";
 import { useEffect, useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from 'yup'
-import { Input } from "../Form/Input";
 import { database } from "../../services/firebase";
 import { RootState } from "../../redux/store";
-import { useDispatch, useSelector } from "react-redux";
-import { activeChat } from "../../redux/slice/chatSlice";
 import { CreateChatModal } from "../Modals/CreateChatModal";
-
-const signFormSchema = yup.object().shape({
-    chatName: yup.string().required('Nome do chat obrigatório'),
-})
-
+import { useSelector } from "react-redux";
 
 type FirebaseChat = Record<string, {
     authorId: string;
@@ -61,7 +51,7 @@ export function SidebarNav() {
             align="flex-start"
             borderRightWidth={{ sm: 0, md: 1 }}
             borderColor="gray.700"
-            h="100%"
+            maxH={{ sm: "90vh", md: "75vh" }}
             overflowY="auto"
             css={{
                 '&::-webkit-scrollbar': {
@@ -95,8 +85,7 @@ export function SidebarNav() {
                     {chats.map(chat => (
                         <Flex key={chat.chatId} pr="6" direction="row">
                             <Tooltip label={chat.chatName} isDisabled={chat.chatName.length <= 30 ? true : false}>
-                                <Text as="span" isTruncated border="1px solid white">
-                                    {console.log(chat.chatName)}
+                                <Text as="span" isTruncated>
                                     <NavLink icon={BsChatSquareText} href={`/chat/${chat.chatId}`}>{chat.chatName}</NavLink>
                                 </Text>
                             </Tooltip>

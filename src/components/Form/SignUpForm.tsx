@@ -32,7 +32,6 @@ export function SignUpForm() {
             .then(result => {
                 const { user } = result;
                 updateProfile(user, { displayName: name })
-                console.log("Registered user: ", user);
 
                 toast.success('Usuário criado com sucesso')
 
@@ -43,8 +42,6 @@ export function SignUpForm() {
                 code === CODE_ERRORS.EMAIL_ALREADY_IN_USE
                     ? toast.error('E-mail já cadastrado')
                     : toast.error('A senha precisa ter no mínimo 06 caracteres')
-
-                console.log("Error ocured: ", code, message);
             });
     }
 

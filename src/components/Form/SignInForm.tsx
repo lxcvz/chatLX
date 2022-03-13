@@ -36,12 +36,10 @@ export function SignInForm() {
                 }))
 
                 navigate("/channels")
-                console.log("Singed in user: ", user);
             })
             .catch((error) => {
                 const { code, message } = error;
                 toast.error('Usuário ou senha incorretos')
-                console.log("Error ocured: ", code, message);
             });
     }
 

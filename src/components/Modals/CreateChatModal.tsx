@@ -14,7 +14,7 @@ const signFormSchema = yup.object().shape({
 
 export function CreateChatModal({ isOpen, onClose }: any) {
     const userAuth = useSelector((state: RootState) => state.userAuth)
-    const { register, handleSubmit, formState } = useForm({
+    const { register, handleSubmit, formState, reset  } = useForm({
         resolver: yupResolver(signFormSchema)
     });
 
@@ -24,6 +24,8 @@ export function CreateChatModal({ isOpen, onClose }: any) {
 
 
     const handleCreateChat: SubmitHandler<any> = async ({ chatName }) => {
+        console.log('mds?')
+        
         const chatRef = database.ref("chats")
 
         const firebaseChat = await chatRef.push({
@@ -36,11 +38,13 @@ export function CreateChatModal({ isOpen, onClose }: any) {
             chatId: firebaseChat.key,
             authorId: userAuth?.userUid
         }))
+
         onClose()
+        reset();
     }
 
     return (
-        <Flex as="form">
+        <Flex as="form" onSubmit={handleSubmit(handleCreateChat)}>
             <Modal
                 isOpen={isOpen}
                 onClose={onClose}
@@ -75,7 +79,7 @@ export function CreateChatModal({ isOpen, onClose }: any) {
                                 type="submit"
                                 isLoading={formState.isSubmitting}
                             >
-                                Save
+                                Salvar
                             </Button>
                             <Button
                                 color="white"
@@ -85,7 +89,7 @@ export function CreateChatModal({ isOpen, onClose }: any) {
                                     background: "red.400"
                                 }}
                             >
-                                Cancel
+                                Cancelar
                             </Button>
                         </ModalFooter>
                     </Flex>

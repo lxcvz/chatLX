@@ -22,7 +22,7 @@ export function Home() {
                 align="center"
                 justify="center"
             >
-                <Stack w="70%" spacing="2">
+                <Stack w="80%" spacing="2">
                     <Logo />
                     <Flex
                         m="auto"

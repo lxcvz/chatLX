@@ -11,7 +11,6 @@ export function ProfileSettings() {
         return signOut(auth)
             .then(() => {
                 navigate("/")
-                console.log("user signed out");
             })
             .catch((error) => {
                 console.log("error", error);
