@@ -82,9 +82,19 @@ export function Chat({ chatId }: ChatId) {
             justify="space-between"
             h="100%"
             onSubmit={handleSendMessage}
-            border="1px solid white"
         >
-            <Stack spacing="6" border="1px solid white" overflowY="auto" overflow="auto">
+            <Stack spacing="6" overflowY="auto" maxH={{ sm: "70vh", md: "80vh" }} css={{
+                '&::-webkit-scrollbar': {
+                    width: '4px',
+                },
+                '&::-webkit-scrollbar-track': {
+                    width: '6px',
+                },
+                '&::-webkit-scrollbar-thumb': {
+                    background: "white",
+                    borderRadius: '24px',
+                },
+            }}>
                 {/* <Text fontWeight="bold" color="gray.400" fontSize="small">Chat 1</Text> */}
                 {messages && messages.map(message => (
                     <Flex key={message.id}>
@@ -96,7 +106,7 @@ export function Chat({ chatId }: ChatId) {
                     </Flex>
                 ))}
             </Stack>
-            <InputGroup border="1px solid white">
+            <InputGroup>
                 <Input
                     borderColor="pink.500"
                     placeholder="Enviar uma mensagem..."
