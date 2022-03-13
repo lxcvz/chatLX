@@ -9,11 +9,16 @@ import { Logo } from '../components/Header/Logo';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { auth } from '../services/firebase';
 import { useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import toast from 'react-hot-toast';
 
 type signInFormData = {
     email: string;
     password: string;
+}
+
+const CODE_ERRORS = {
+    WEAK_PASSWORD: "auth/weak-password",
+    EMAIL_ALREADY_IN_USE: "auth/email-already-in-use"
 }
 
 const signFormSchema = yup.object().shape({
@@ -41,12 +46,17 @@ export function CreateUser() {
                 const { user } = result;
                 updateProfile(user, { displayName: name })
                 console.log("Registered user: ", user);
-                //adicionar toast de sucesso https://react-hot-toast.com/
-              
+
+                toast.success('Usuário criado com sucesso')
+
                 navigate("/")
             })
             .catch((error) => {
                 const { code, message } = error;
+                code === CODE_ERRORS.EMAIL_ALREADY_IN_USE
+                    ? toast.error('E-mail já cadastrado')
+                    : toast.error('A senha precisa ter no mínimo 06 caracteres')
+
                 console.log("Error ocured: ", code, message);
             });
 
@@ -138,8 +148,6 @@ export function CreateUser() {
                     </Flex>
                 </Flex>
             </Stack>
-
-            <ToastContainer />
         </Flex>
     )
 }
