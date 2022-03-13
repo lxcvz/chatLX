@@ -17,8 +17,6 @@ export function ActiveLink({
 }: ActiveLinkProps) {
     const location = useLocation()
 
-
-    // const { asPath } = useRouter();
     let isActive = false;
 
     if (shouldMatchExactHref && (location.pathname === rest.href)) {
@@ -32,7 +30,7 @@ export function ActiveLink({
     return (
         <Link to={rest.href} {...rest}>
             {cloneElement(children, {
-                color: isActive ? "pink.400" : "gray.50"
+                color: isActive ? "pink.400" : "gray.400"
             })}
         </Link>
     );

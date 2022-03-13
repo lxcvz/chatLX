@@ -10,13 +10,16 @@ import { store } from './redux/store';
 import { ChakraProvider } from '@chakra-ui/react'
 import { theme } from './styles/theme';
 import { Toaster } from 'react-hot-toast';
+import { SidebarDrawerProvider } from './contexts/SidebarDrawerContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <ReduxProvider store={store}>
       <ChakraProvider theme={theme}>
         <Toaster position="top-center" reverseOrder={false} />
-        <App />
+        <SidebarDrawerProvider>
+          <App />
+        </SidebarDrawerProvider>
       </ChakraProvider>
     </ReduxProvider>
   </React.StrictMode>,

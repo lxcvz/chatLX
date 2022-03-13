@@ -1,13 +1,14 @@
-import { Flex, Icon, IconButton, useBreakpointValue } from '@chakra-ui/react'
+import { Flex, Icon, IconButton, useBreakpointValue, useDisclosure } from '@chakra-ui/react'
 import { RiMenuLine } from 'react-icons/ri'
-// import { useSidebarDrawer } from '../../contexts/SidebarDrawerContext'
+import { useDispatch } from 'react-redux'
+import { useSidebarDrawer } from '../../contexts/SidebarDrawerContext'
 import { Logo } from './Logo'
-import { NotificationsNav } from './NotificationsNav'
+import { ProfileSettings } from "./ProfileSettings"
 import { Profile } from './Profile'
 
 export function Header() {
-    // const { onOpen } = useSidebarDrawer()
-
+    const { onOpen } = useSidebarDrawer()
+    
     const isWideVersion = useBreakpointValue({
         base: false,
         lg: true,
@@ -29,7 +30,7 @@ export function Header() {
                     icon={<Icon as={RiMenuLine} />}
                     fontSize="24"
                     variant="unstyled"
-                    // onClick={onOpen}
+                    onClick={onOpen}
                     aria-label="Open navigation"
                     mr="2"
                 />
@@ -38,7 +39,7 @@ export function Header() {
             <Logo />
 
             <Flex align="center" ml="auto">
-                <NotificationsNav />
+                <ProfileSettings />
                 <Profile showProfileData={isWideVersion} />
             </Flex>
         </Flex>

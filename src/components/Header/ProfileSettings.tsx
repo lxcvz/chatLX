@@ -4,7 +4,7 @@ import { CgProfile } from "react-icons/cg"
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../services/firebase";
 
-export function NotificationsNav() {
+export function ProfileSettings() {
     const navigate = useNavigate();
 
     function handleSignOut() {

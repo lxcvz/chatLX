@@ -1,8 +1,11 @@
-import { Box, useBreakpointValue, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerHeader, DrawerBody } from "@chakra-ui/react";
+import { Box, useBreakpointValue, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerHeader, DrawerBody, useDisclosure } from "@chakra-ui/react";
+import { useSelector } from "react-redux";
 import { SidebarNav } from "./SidebarNav";
+import { RootState } from '../../redux/store';
+import { useSidebarDrawer } from "../../contexts/SidebarDrawerContext";
 
 export function Sidebar() {
-    // const { isOpen, onClose } = useSidebarDrawer()
+    const { isOpen, onClose } = useSidebarDrawer()
 
     const isDrawerSidebar = useBreakpointValue({
         base: true,
@@ -11,11 +14,9 @@ export function Sidebar() {
 
     if (isDrawerSidebar) {
         return (
-            <Drawer isOpen={false} placement="left" onClose={() => {}} >
+            <Drawer isOpen={isOpen} placement="left" onClose={onClose} >
                 <DrawerOverlay>
                     <DrawerContent bg="gray.800" p="4">
-                        <DrawerCloseButton mt="6" />
-                        <DrawerHeader>Navegação</DrawerHeader>
                         <DrawerBody>
                             <SidebarNav />
                         </DrawerBody>
