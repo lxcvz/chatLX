@@ -45,7 +45,7 @@ export function SidebarNav(chatId: any) {
         return () => {
             chatRef.off('value');
         }
-    }, [chatId])
+    }, [chatId, chatSelector])
 
 
     return (

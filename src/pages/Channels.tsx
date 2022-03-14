@@ -32,7 +32,7 @@ export function Channels() {
         return () => {
             unsubscribe()
         }
-    }, [])
+    }, [dispatch])
 
     return (
         <Flex direction="column" h="100vh">
@@ -53,7 +53,7 @@ export function Channels() {
                 ) : (
                     <Flex w="100%" h="100%" direction="column" align="center" justify="center">
                         <Text color="gray.300">
-                            ..Ops parece que você não iniciou nenhum chat ainda!
+                            Crie um chat ou entre em um já existente para iniciar uma conversa!
                         </Text>
                     </Flex>
                 )}

@@ -38,7 +38,7 @@ export function SignInForm() {
                 navigate("/channels")
             })
             .catch((error) => {
-                const { code, message } = error;
+                console.log("error", error)
                 toast.error('Usuário ou senha incorretos')
             });
     }
