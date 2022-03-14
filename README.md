@@ -1,46 +1,42 @@
-# Getting Started with Create React App
+<h1 align="center">
+  Chat.LX
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-como-executar">Como executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+</p>
 
-## Available Scripts
+<br>
 
-In the project directory, you can run:
+## ✨ Tecnologias
 
-### `yarn start`
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [React - Typescript](https://reactjs.org)
+- [Redux toolkit](https://redux-toolkit.js.org/)
+- [Chakra UI](https://chakra-ui.com/)
+- [React hook form](https://react-hook-form.com/)
+- [Firebase auth - Realtime database](https://firebase.google.com/)
+- [React hot toast](https://react-hot-toast.com/)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 💻 Projeto
 
-### `yarn test`
+O Chat.LX é uma plataforma de chat onde o usuário pode se cadastrar ou criar um login para trocar mensagens simultâneamente com outras pessoas. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🔖 Layout
 
-### `yarn build`
+Você pode visualizar o wireframe do projeto através [desse link](https://www.figma.com/file/TXMUiQtHKR9nClA76OxeRt/Untitled?node-id=0%3A1). É necessário ter conta no [Figma](http://figma.com/) para acessá-lo.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🚀 Como executar
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Clone o repositório
+- Instale as dependências com `yarn`
+- Inicie o servidor com `yarn dev`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Para rodar esse projeto localmente também será necessário ter um projeto criado dentro do [Firebase](https://firebase.google.com/). A partir disso, será preciso preencher as credenciais do projeto do firebase dentro do arquivo src/services/firebase.ts
 
-### `yarn eject`
+Agora você pode acessar [`localhost:3000`](http://localhost:3000) do seu navegador.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
