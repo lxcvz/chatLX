@@ -1,6 +1,5 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
-import { useSidebarDrawer } from "../contexts/SidebarDrawerContext";
 import { RootState } from "../redux/store";
 import { database } from "../services/firebase";
 

@@ -1,7 +1,5 @@
-import { Box, useBreakpointValue, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerHeader, DrawerBody, useDisclosure } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
+import { Box, useBreakpointValue, Drawer, DrawerOverlay, DrawerContent, DrawerBody } from "@chakra-ui/react";
 import { SidebarNav } from "./SidebarNav";
-import { RootState } from '../../redux/store';
 import { useSidebarDrawer } from "../../contexts/SidebarDrawerContext";
 import { useParams } from "react-router-dom";
 

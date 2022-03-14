@@ -1,6 +1,5 @@
-import { Flex, Icon, IconButton, useBreakpointValue, useDisclosure } from '@chakra-ui/react'
+import { Flex, Icon, IconButton, useBreakpointValue } from '@chakra-ui/react'
 import { RiMenuLine } from 'react-icons/ri'
-import { useDispatch } from 'react-redux'
 import { useSidebarDrawer } from '../../contexts/SidebarDrawerContext'
 import { Logo } from './Logo'
 import { ProfileSettings } from "./ProfileSettings"
