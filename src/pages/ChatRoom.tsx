@@ -72,7 +72,6 @@ export function ChatRoom() {
                     <Button type="submit" bg="transparent" _hover={{ bg: "transparent" }} leftIcon={<BiSend color='teal.300' />} />
                 } />
             </InputGroup>
-
         </Flex >
     )
 }

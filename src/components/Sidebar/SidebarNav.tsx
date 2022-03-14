@@ -51,6 +51,7 @@ export function SidebarNav() {
             align="flex-start"
             borderRightWidth={{ sm: 0, md: 1 }}
             borderColor="gray.700"
+            h="100%"
             maxH={{ sm: "90vh", md: "75vh" }}
             overflowY="auto"
             css={{

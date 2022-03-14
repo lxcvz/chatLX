@@ -14,7 +14,7 @@ const signFormSchema = yup.object().shape({
 
 export function CreateChatModal({ isOpen, onClose }: any) {
     const userAuth = useSelector((state: RootState) => state.userAuth)
-    const { register, handleSubmit, formState, reset  } = useForm({
+    const { register, handleSubmit, formState, reset } = useForm({
         resolver: yupResolver(signFormSchema)
     });
 
@@ -25,7 +25,7 @@ export function CreateChatModal({ isOpen, onClose }: any) {
 
     const handleCreateChat: SubmitHandler<any> = async ({ chatName }) => {
         console.log('mds?')
-        
+
         const chatRef = database.ref("chats")
 
         const firebaseChat = await chatRef.push({
@@ -44,57 +44,54 @@ export function CreateChatModal({ isOpen, onClose }: any) {
     }
 
     return (
-        <Flex as="form" onSubmit={handleSubmit(handleCreateChat)}>
-            <Modal
-                isOpen={isOpen}
-                onClose={onClose}
-            >
-                <ModalOverlay />
-                <ModalContent bg="gray.700">
-                    <Flex
-                        as="form"
-                        onSubmit={handleSubmit(handleCreateChat)}
-                        direction="column"
-                    >
-                        <ModalHeader>Criar um novo chat</ModalHeader>
-                        <ModalCloseButton />
-                        <ModalBody pb={6}>
-                            <FormControl>
-                                <Input
-                                    type="text"
-                                    label="Nome do chat"
-                                    {...register("chatName")}
-                                    error={errors.chatName}
-                                />
-
-                            </FormControl>
-                        </ModalBody>
-                        <ModalFooter>
-                            <Button
-                                bg="teal.500"
-                                mr={3}
-                                _hover={{
-                                    background: "teal.400"
-                                }}
-                                type="submit"
-                                isLoading={formState.isSubmitting}
-                            >
-                                Salvar
-                            </Button>
-                            <Button
-                                color="white"
-                                bg="red.500"
-                                onClick={onClose}
-                                _hover={{
-                                    background: "red.400"
-                                }}
-                            >
-                                Cancelar
-                            </Button>
-                        </ModalFooter>
-                    </Flex>
-                </ModalContent>
-            </Modal>
-        </Flex>
+        <Modal
+            isOpen={isOpen}
+            onClose={onClose}
+        >
+            <ModalOverlay />
+            <ModalContent bg="gray.700">
+                <Flex
+                    as="form"
+                    onSubmit={handleSubmit(handleCreateChat)}
+                    direction="column"
+                >
+                    <ModalHeader>Criar um novo chat</ModalHeader>
+                    <ModalCloseButton />
+                    <ModalBody pb={6}>
+                        <FormControl>
+                            <Input
+                                type="text"
+                                label="Nome do chat"
+                                {...register("chatName")}
+                                error={errors.chatName}
+                            />
+                        </FormControl>
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button
+                            bg="teal.500"
+                            mr={3}
+                            _hover={{
+                                background: "teal.400"
+                            }}
+                            type="submit"
+                            isLoading={formState.isSubmitting}
+                        >
+                            Salvar
+                        </Button>
+                        <Button
+                            color="white"
+                            bg="red.500"
+                            onClick={onClose}
+                            _hover={{
+                                background: "red.400"
+                            }}
+                        >
+                            Cancelar
+                        </Button>
+                    </ModalFooter>
+                </Flex>
+            </ModalContent>
+        </Modal>
     )
 }
