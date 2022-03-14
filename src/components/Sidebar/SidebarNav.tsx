@@ -19,7 +19,7 @@ type ChatType = {
     chatId: string;
 }
 
-export function SidebarNav() {
+export function SidebarNav(chatId: any) {
     const chatSelector = useSelector((state: RootState) => state.chats)
     const [chats, setChats] = useState<ChatType[]>([]);
 
@@ -42,8 +42,11 @@ export function SidebarNav() {
             setChats(parsedChat)
         })
 
+        return () => {
+            chatRef.off('value');
+        }
+    }, [chatId])
 
-    }, [chatSelector])
 
     return (
         <Stack

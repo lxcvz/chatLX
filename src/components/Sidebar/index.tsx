@@ -3,9 +3,11 @@ import { useSelector } from "react-redux";
 import { SidebarNav } from "./SidebarNav";
 import { RootState } from '../../redux/store';
 import { useSidebarDrawer } from "../../contexts/SidebarDrawerContext";
+import { useParams } from "react-router-dom";
 
 export function Sidebar() {
     const { isOpen, onClose } = useSidebarDrawer()
+    const { chatId } = useParams<string>()
 
     const isDrawerSidebar = useBreakpointValue({
         base: true,
@@ -18,7 +20,7 @@ export function Sidebar() {
                 <DrawerOverlay>
                     <DrawerContent bg="gray.800" p="4">
                         <DrawerBody>
-                            <SidebarNav />
+                            <SidebarNav chatId={chatId}/>
                         </DrawerBody>
                     </DrawerContent>
                 </DrawerOverlay>
@@ -28,7 +30,7 @@ export function Sidebar() {
 
     return (
         <Box as="aside" w="64" mr="8">
-            <SidebarNav />
+            <SidebarNav chatId={chatId}/>
         </Box >
     )
 }

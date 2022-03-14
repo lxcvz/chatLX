@@ -22,10 +22,7 @@ export function CreateChatModal({ isOpen, onClose }: any) {
 
     const { errors } = formState;
 
-
     const handleCreateChat: SubmitHandler<any> = async ({ chatName }) => {
-        console.log('mds?')
-
         const chatRef = database.ref("chats")
 
         const firebaseChat = await chatRef.push({

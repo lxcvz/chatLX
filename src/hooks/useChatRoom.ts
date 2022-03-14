@@ -24,7 +24,6 @@ export function useChatRoom(chatId: string | undefined) {
     const { userName, userUid } = useSelector((state: RootState) => state.userAuth)
     const [newMessage, setNewMessage] = useState('');
     const [messages, setMessages] = useState<MessageType[]>([])
-    const { onClose } = useSidebarDrawer()
 
     const messagesEndRef = useRef<null | HTMLDivElement>(null);
 
@@ -45,19 +44,18 @@ export function useChatRoom(chatId: string | undefined) {
                 authorId: userUid
             }
         }
-
         await database.ref(`chats/${chatId}/messages`).push(message)
         setNewMessage('')
     }
 
     useEffect(() => {
-        const roomRef = database.ref(`chats/${chatId}`);
+        const messageRef = database.ref(`chats/${chatId}`);
+        
+        messageRef.on('value', message => {
+            const databaseMessage = message.val();
+            const firebaseMessage: FirebaseMessages = databaseMessage.messages ?? {};
 
-        roomRef.on('value', room => {
-            const databaseChat = room.val();
-            const firebaseChat: FirebaseMessages = databaseChat.messages ?? {};
-
-            const parsedMessages = Object.entries(firebaseChat).map(([key, value]) => {
+            const parsedMessages = Object.entries(firebaseMessage).map(([key, value]) => {
                 return {
                     id: key,
                     content: value.content,
@@ -65,13 +63,11 @@ export function useChatRoom(chatId: string | undefined) {
                 }
             })
 
-            onClose()
-
             setMessages(parsedMessages)
         })
 
         return () => {
-            roomRef.off('value');
+            messageRef.off('value');
         }
     }, [chatId]);
 
