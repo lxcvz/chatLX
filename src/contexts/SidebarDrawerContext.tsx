@@ -1,5 +1,5 @@
 import { useDisclosure, UseDisclosureReturn } from "@chakra-ui/react";
-import { createContext, ReactNode, useContext, useEffect } from "react";
+import { createContext, ReactNode, useContext } from "react";
 
 interface SidebarDrawerProviderProps {
     children: ReactNode
