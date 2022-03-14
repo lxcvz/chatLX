@@ -38,7 +38,7 @@ export function SignUpForm() {
                 navigate("/")
             })
             .catch((error) => {
-                const { code, message } = error;
+                const { code } = error;
                 code === CODE_ERRORS.EMAIL_ALREADY_IN_USE
                     ? toast.error('E-mail já cadastrado')
                     : toast.error('A senha precisa ter no mínimo 06 caracteres')
