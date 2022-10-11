@@ -15,7 +15,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
-O Chat.LX é uma plataforma de chat onde o usuário pode se cadastrar ou criar um login para trocar mensagens simultâneamente com outras pessoas. Você pode acessar [cliquando aqui!](https://lxchat-c4545.web.app/)
+O Chat.LX é uma plataforma de chat onde o usuário pode se cadastrar ou criar um login para trocar mensagens simultâneamente com outras pessoas. Você pode acessar [clicando aqui!](https://lxchat-c4545.web.app/)
 
 ## 🔖 Layout
 
